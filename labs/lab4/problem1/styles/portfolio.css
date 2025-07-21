@@ -1,0 +1,239 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333333;
+    background-color: #f8f9fa;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* ============================================
+   ⭐ TODO SECTION 1: HEADER STYLES (2 points)
+   Add styling for h1, h2, and p elements in header
+   Use colors from the color scheme provided
+   ============================================ */
+
+h2{
+    font-size: 2.0em;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #3498db;
+}
+
+
+header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+/* TODO: Add h1 styles here (2.5em, #2c3e50, margin-bottom: 10px) */
+h1{
+    font-size: 2.5em;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+/* TODO: Add header h2 styles here (1.5em, #3498db, margin-bottom: 10px) */
+
+header h2{
+    font-size: 1.5em;
+    color: #3498db;
+    margin-bottom: 10px;
+}
+
+/* TODO: Add header p styles here (1.2em, #666) */
+header p{
+    font-size: 1.2em;
+    color: #666;
+}
+
+/* ============================================
+   ⭐ TODO SECTION 2: SECTION HEADINGS & LAYOUT (2 points)
+   Style all section h2 elements and about section layout
+   ============================================ */
+/* TODO: Add section h2 styles here (2em, #3498db, margin-bottom: 30px, center aligned) */
+section h2{
+    font-size: 2em;
+    color: #3498db;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.about-section {
+    margin-bottom: 50px;
+}
+
+/* TODO: Add flexbox styles for .about-content here (display: flex, align-items: center, gap: 30px) */
+.about-content{
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    
+}
+
+.profile-image {
+    width: 200px;
+    height: 200px;
+    background-color: #3498db;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.about-content p {
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+
+/* ============================================
+   ⭐ TODO SECTION 3: CSS GRID LAYOUT (3 points)
+   Implement CSS Grid for skills, projects, and contact sections
+   ============================================ */
+.skills-section {
+    margin-bottom: 50px;
+}
+
+/* TODO: Add CSS Grid for .skills-grid here (display: grid, 3 columns with repeat(3, 1fr), 20px gap) */
+.skills-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.projects-section {
+    margin-bottom: 50px;
+}
+
+/* TODO: Add CSS Grid for .projects-grid here (display: grid, 2 columns with repeat(2, 1fr), 20px gap) */
+.project-grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.project-image {
+    width: 100%;
+    height: 200px;
+    background-color: #ddd;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.contact-section {
+    margin-bottom: 50px;
+}
+
+/* TODO: Add CSS Grid for .contact-grid here (display: grid, 4 columns with repeat(4, 1fr), 20px gap) */
+.contact-grid{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+/* ============================================
+   ⭐ TODO SECTION 4: CARD STYLES & BUTTONS (2 points)
+   Apply consistent styling to all cards and buttons
+   ============================================ */
+/* TODO: Add card styles for .skill-card, .project-card, .contact-item here 
+   (white background, 20px padding, 8px border-radius, box-shadow: 0 2px 8px rgba(0,0,0,0.1)) */
+.skill-card, .project-card, .contact-item{
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1) ;
+
+}
+
+.skill-card h3,
+.project-card h3,
+.contact-item h3 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.skill-card p,
+.project-card p,
+.contact-item p {
+    color: #666;
+}
+
+/* TODO: Add button styles for .view-btn here 
+   (background-color: #3498db, color: white, border: none, padding: 10px 20px, 
+   border-radius: 5px, cursor: pointer, font-size: 1em, margin-top: 15px) */
+.view-btn{
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    margin-top: 15px;
+}
+
+/* TODO: Add hover effect for .view-btn here (background-color: #2980b9) */
+.view-btn:hover{
+    background-color: #2980b9;
+}
+
+/* ============================================
+   ⭐ TABLET RESPONSIVE STYLES (2 points)
+   Media query for tablets (max-width: 1023px)
+   Adjust grid columns: skills=2, contact=2
+   ============================================ */
+@media (max-width: 1023px) {
+    /* TODO: Change skills-grid to 2 columns (grid-template-columns: repeat(2, 1fr)) */
+    .skills-grid{
+        grid-template-columns: repeat(2,1fr);
+    }
+    /* TODO: Change contact-grid to 2 columns (grid-template-columns: repeat(2, 1fr)) */
+    .contact-grid{
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* TODO: Change about-content to column direction and center text 
+       (flex-direction: column, text-align: center) */
+    .about-content{
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* ============================================
+   ⭐ MOBILE RESPONSIVE STYLES (2 points)
+   Media query for mobile (max-width: 767px)
+   All grids should be 1 column
+   ============================================ */
+@media (max-width: 767px) {
+    /* TODO: Reduce body padding to 15px */
+    body{
+        padding: 15px;
+    }
+
+    /* TODO: Change all grids to 1 column (.skills-grid, .projects-grid, .contact-grid: grid-template-columns: 1fr) */
+    .skills-grid, .projects-grid, .contact-grid{
+        grid-template-columns: 1fr
+    }
+    /* TODO: Adjust about-content for mobile (flex-direction: column, text-align: center) */
+    .about-content{
+        flex-direction: column;
+        text-align: center;
+    }
+
+    /* TODO: Reduce font sizes for mobile (h1: 2em, section h2: 1.8em) */
+    h1{
+        font-size: 2em;
+    }
+    .about-section h2{
+        font-size: 1.8em;
+    }
+
+
+}
