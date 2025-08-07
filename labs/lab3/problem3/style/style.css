@@ -1,0 +1,173 @@
+/* Point 4: Layout & Spacing - Body max-width 800px centered, proper padding */
+body {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  line-height: 1.6;
+}
+
+/* Point 5: Color & Typography - h1 color #2c3e50 */
+h1 {
+  color: #2c3e50;
+  font-size: 2.5em;
+  margin-bottom: 10px;
+}
+
+h2 {
+  color: #34495e;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 5px;
+}
+
+h3 {
+  color: #2c3e50;
+  margin-bottom: 15px;
+  font-size: 1.2em;
+}
+
+/* Demo section styling */
+.demo-section {
+  margin: 30px 0;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Point 1: Display Properties - Block elements full width on new lines */
+.block-demo div {
+  display: block;
+  width: 100%;
+  height: 50px;
+  margin: 10px 0;
+  color: white;
+  text-align: center;
+  line-height: 50px;
+  font-weight: bold;
+}
+
+/* Point 1: Display Properties - Inline elements side-by-side (no width/height) */
+.inline-demo span {
+  display: inline;
+  padding: 10px 15px;
+  margin: 5px;
+  color: white;
+  font-weight: bold;
+}
+
+/* Point 1: Display Properties - Inline-block elements side-by-side with width/height */
+.inline-block-demo div {
+  display: inline-block;
+  width: 120px;
+  height: 60px;
+  margin: 5px;
+  line-height: 60px;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Point 5: Color & Typography - Different background colors (red, green, blue) */
+.red {
+  background-color: red;
+}
+.green {
+  background-color: green;
+}
+.blue {
+  background-color: blue;
+}
+
+/* Point 3: Hover Effects - Display demo elements hover effect changing background */
+.block-item:hover,
+.inline-item:hover,
+.inline-block-item:hover {
+  filter: brightness(1.2);
+  cursor: pointer;
+}
+
+/* Point 2 & 3: Navigation Styling with Flexbox Properties */
+nav {
+  margin: 25px 0;
+}
+
+/* Remove list bullets + flexbox horizontal layout */
+nav ul {
+  list-style: none;
+  background-color: #333;
+  display: flex;
+  padding: 0;
+  margin: 0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Point 2 & 5: Navigation links padding 15px 20px, white text */
+nav a {
+  display: block;
+  color: white;
+  padding: 15px 20px;
+  text-decoration: none;
+  text-align: center;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  flex-grow: 1;
+}
+
+/* Point 3: Hover Effects - Navigation links change background to #4CAF50 on hover */
+nav a:hover {
+  background-color: #4caf50;
+}
+
+/* Point 3: Flexbox Properties Demo */
+.flex-container {
+  display: flex;
+  background-color: #ecf0f1;
+  padding: 20px;
+  border-radius: 8px;
+  margin: 20px 0;
+  min-height: 100px;
+  gap: 10px;
+}
+
+.flex-item {
+  color: white;
+  padding: 20px;
+  margin: 5px 0;
+  border-radius: 4px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-weight: bold;
+}
+
+/* Different flex-grow and flex-shrink values */
+.flex-item1 {
+  flex: 1 1 200px; /* grow 1, shrink 1 */
+  background-color: red;
+}
+
+.flex-item2 {
+  flex: 3 1 200px; /* grow 3, shrink 1 */
+  background-color: green;
+}
+
+.flex-item3 {
+  flex: 1 3 200px; /* grow 1, shrink 3 */
+  background-color: blue;
+}
+
+.flex-item4 {
+  flex: 2 2 200px; /* grow 2, shrink 2 */
+  background-color: orange;
+}
+
+/* Point 3: Hover Effects - Flex items hover */
+.flex-item:hover {
+  filter: brightness(1.2);
+  cursor: pointer;
+}

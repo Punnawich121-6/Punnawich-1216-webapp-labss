@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Display & Navigation Demo</title>
+    <link rel="stylesheet" href="styles/display-nav.css" />
+  </head>
+  <body>
+    <!-- Header Section -->
+    <header>
+      <h1>CSS Display & Navigation Demo</h1>
+      <h2>Created by John Doe - Student ID: 12345678</h2>
+    </header>
+
+    <!-- Display Property Demo Section -->
+    <section>
+      <h2>Display Property Examples</h2>
+
+      <!-- Block Elements Demo -->
+      <div class="demo-section">
+        <h3>Block Elements (display: block)</h3>
+        <div class="block-demo">
+          <div class="block-item red">Block 1</div>
+          <div class="block-item green">Block 2</div>
+          <div class="block-item blue">Block 3</div>
+        </div>
+        <p><em>Block elements take full width and start on new lines</em></p>
+      </div>
+
+      <!-- Inline Elements Demo -->
+      <div class="demo-section">
+        <h3>Inline Elements (display: inline)</h3>
+        <div class="inline-demo">
+          <span class="inline-item red">Inline 1</span>
+          <span class="inline-item green">Inline 2</span>
+          <span class="inline-item blue">Inline 3</span>
+        </div>
+        <p><em>Inline elements flow side-by-side, width/height ignored</em></p>
+      </div>
+
+      <!-- Inline-Block Elements Demo -->
+      <div class="demo-section">
+        <h3>Inline-Block Elements (display: inline-block)</h3>
+        <div class="inline-block-demo">
+          <div class="inline-block-item red">Inline-Block 1</div>
+          <div class="inline-block-item green">Inline-Block 2</div>
+          <div class="inline-block-item blue">Inline-Block 3</div>
+        </div>
+        <p>
+          <em>Inline-block elements flow side-by-side but accept width/height</em>
+        </p>
+      </div>
+    </section>
+
+    <!-- Navigation Bar Section -->
+    <section>
+      <h2>Navigation Bar Demo</h2>
+      <nav>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Portfolio</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+    </section>
+
+    <!-- Flexbox Properties Demo Section -->
+    <section>
+      <h2>Flexbox Properties Demo</h2>
+      <div class="flex-container">
+        <div class="flex-item flex-item1">
+          Item 1
+          <small>grow:1 shrink:1</small>
+        </div>
+        <div class="flex-item flex-item2">
+          Item 2
+          <small>grow:3 shrink:1</small>
+        </div>
+        <div class="flex-item flex-item3">
+          Item 3
+          <small>grow:1 shrink:3</small>
+        </div>
+        <div class="flex-item flex-item4">
+          Item 4
+          <small>grow:2 shrink:2</small>
+        </div>
+      </div>
+      <p>
+        <em>
+          Resize your browser window to see how items grow and shrink differently
+          based on their flex properties.
+        </em>
+      </p>
+    </section>
+  </body>
+</html>
