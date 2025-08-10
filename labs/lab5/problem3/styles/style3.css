@@ -1,0 +1,269 @@
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* Container and Layout */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.header {
+  background: linear-gradient(45deg, #2c3e50, #34495e);
+  color: white;
+  text-align: center;
+  padding: 30px 20px;
+}
+
+.header h1 {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+}
+
+.header p {
+  font-size: 1.1em;
+  opacity: 0.9;
+}
+
+/* Calculator Grid */
+.calculators {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  min-height: 600px;
+}
+
+.calculator {
+  padding: 40px 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.calculator:first-child {
+  border-right: 3px solid #e1e8ed;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.calculator:last-child {
+  background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+}
+
+.calculator h2 {
+  font-size: 1.8em;
+  margin-bottom: 25px;
+  text-align: center;
+  color: #2c3e50;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #3498db;
+}
+
+/* Form Styles */
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #34495e;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 10px rgba(52, 152, 219, 0.3);
+}
+
+/* Operator Buttons */
+.operator-group {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.operator-btn {
+  padding: 15px;
+  border: 2px solid #3498db;
+  background: white;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #3498db;
+}
+
+.operator-btn:hover {
+  background: #3498db;
+  color: white;
+  transform: translateY(-2px);
+}
+
+.operator-btn.selected {
+  background: #3498db;
+  color: white;
+  box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4);
+}
+
+/* General Buttons */
+.btn {
+  padding: 15px 30px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.btn-primary {
+  background: linear-gradient(45deg, #3498db, #2980b9);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(45deg, #2980b9, #21618c);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+}
+
+.btn-secondary {
+  background: linear-gradient(45deg, #e74c3c, #c0392b);
+  color: white;
+}
+
+.btn-secondary:hover {
+  background: linear-gradient(45deg, #c0392b, #a93226);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(231, 76, 60, 0.4);
+}
+
+.btn-success {
+  background: linear-gradient(45deg, #27ae60, #229954);
+  color: white;
+}
+
+.btn-success:hover {
+  background: linear-gradient(45deg, #229954, #1e8449);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(39, 174, 96, 0.4);
+}
+
+/* Result Display */
+.result {
+  margin-top: 25px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  border-left: 5px solid #27ae60;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.result h3 {
+  color: #27ae60;
+  margin-bottom: 10px;
+  font-size: 1.3em;
+}
+
+.result-value {
+  font-size: 1.8em;
+  font-weight: bold;
+  color: #2c3e50;
+  margin: 10px 0;
+}
+
+/* Numbers List Display */
+.numbers-list {
+  margin-top: 20px;
+  padding: 15px;
+  background: rgba(52, 152, 219, 0.1);
+  border-radius: 8px;
+  border: 1px solid rgba(52, 152, 219, 0.3);
+}
+
+.numbers-list h4 {
+  color: #3498db;
+  margin-bottom: 10px;
+}
+
+.number-item {
+  display: inline-block;
+  background: #3498db;
+  color: white;
+  padding: 5px 12px;
+  margin: 3px;
+  border-radius: 15px;
+  font-weight: bold;
+}
+
+/* Error Display */
+.error {
+  color: #e74c3c;
+  font-weight: bold;
+  margin-top: 10px;
+  padding: 10px;
+  background: rgba(231, 76, 60, 0.1);
+  border-radius: 5px;
+  border-left: 3px solid #e74c3c;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .calculators {
+    grid-template-columns: 1fr;
+  }
+
+  .calculator:first-child {
+    border-right: none;
+    border-bottom: 3px solid #e1e8ed;
+  }
+
+  .header h1 {
+    font-size: 2em;
+  }
+
+  .calculator {
+    padding: 30px 20px;
+  }
+
+  .operator-group {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+
+  .btn {
+    padding: 12px 20px;
+    font-size: 14px;
+  }
+}

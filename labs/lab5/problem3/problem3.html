@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dual Calculator - Web Development Assignment</title>
+    <link rel="stylesheet" href="styles/style3.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>🧮 Dual Calculator Application</h1>
+        <p>
+          Demonstrating Arrow Functions, Function Expressions, and Callback
+          Functions
+        </p>
+      </div>
+
+      <div class="calculators">
+        <!-- Part 1: Two Number Calculator -->
+        <div class="calculator">
+          <h2>📊 Two Number Calculator</h2>
+          <form id="twoNumberForm">
+            <div class="form-group">
+              <label for="num1">First Number:</label>
+              <input type="text" id="num1" placeholder="Enter first number" />
+            </div>
+
+            <div class="form-group">
+              <label for="num2">Second Number:</label>
+              <input type="text" id="num2" placeholder="Enter second number" />
+            </div>
+
+            <div class="form-group">
+              <label>Select Operation:</label>
+              <div class="operator-group">
+                <button type="button" class="operator-btn" data-op="add">
+                  +
+                </button>
+                <button type="button" class="operator-btn" data-op="subtract">
+                  -
+                </button>
+                <button type="button" class="operator-btn" data-op="multiply">
+                  ×
+                </button>
+                <button type="button" class="operator-btn" data-op="divide">
+                  ÷
+                </button>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">
+              Calculate Result
+            </button>
+          </form>
+
+          <div id="twoNumberResult"></div>
+        </div>
+
+        <!-- Part 2: Multiple Number Calculator -->
+        <div class="calculator">
+          <h2>🔢 Multiple Number Calculator</h2>
+          <form id="multiNumberForm">
+            <div class="form-group">
+              <label for="multiOperator">Choose Operation:</label>
+              <select id="multiOperator">
+                <option value="">Select an operation</option>
+                <option value="add">Addition (+)</option>
+                <option value="subtract">Subtraction (-)</option>
+                <option value="multiply">Multiplication (×)</option>
+                <option value="divide">Division (÷)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="numberInput">Enter Numbers (one by one):</label>
+              <input
+                type="text"
+                id="numberInput"
+                placeholder="Enter a number and press Add"
+              />
+              <button
+                type="button"
+                id="addNumberBtn"
+                class="btn btn-secondary"
+                style="margin-top: 10px"
+              >
+                Add Number
+              </button>
+            </div>
+
+            <div class="form-group">
+              <button
+                type="button"
+                id="calculateMultiBtn"
+                class="btn btn-success"
+              >
+                Calculate All Numbers
+              </button>
+              <button
+                type="button"
+                id="clearNumbersBtn"
+                class="btn btn-secondary"
+              >
+                Clear All
+              </button>
+            </div>
+          </form>
+
+          <div id="multiNumberResult"></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./lib/problem3-starter.js"></script>
+  </body>
+</html>
