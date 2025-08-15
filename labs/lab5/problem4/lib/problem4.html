@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Cylinder Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .highlight {
+            color: #007bff;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>🔢 Cylinder Volume Calculator</h1>
+
+    <script>
+        // TODO 1: Implement isValidNumber function
+        // This arrow function should check if a value is a valid number
+        // Parameters: value - the value to check
+        // Return: true if the value is a number, not NaN, and finite; false otherwise
+        // Hint: Use typeof, isNaN(), and isFinite() functions
+        let isValidNumber = (value) => {
+            return typeof value === 'number' && !isNaN(value) && isFinite(value);
+        };
+
+
+        // TODO 2: Implement getDimension function
+        // This function should prompt user for input and validate it
+        // Parameters: dimensionName - string describing what dimension to get (e.g., "radius", "height")
+        // Return: a valid positive number
+        // Requirements:
+        // - Use prompt() to get user input
+        // - Convert string to number using parseFloat()
+        // - Validate that the number is valid and positive
+        // - Keep asking until valid input is provided
+        // - Show alert with error message for invalid input
+        function getDimension(dimensionName) {
+            let validInput = false;
+            let value;
+
+            // Keep prompting until valid input is provided
+            while (!validInput) {
+                // Prompt user for the dimension input
+                let userInput = prompt(`Please enter a valid positive number for ${dimensionName}:`);
+
+                // Convert the input to a number
+                value = parseFloat(userInput);
+
+                // Validate if the value is a valid positive number
+                if (!isNaN(value) && value > 0) {
+                    validInput = true; // Valid input, exit loop
+                } else {
+                    // Alert the user if the input is invalid
+                    alert(`Invalid input for ${dimensionName}. Please enter a valid positive number.`);
+                }
+            }
+
+            return value;
+        }
+
+
+        // TODO 3: Implement Cylinder constructor function
+        // This constructor function should:
+        // - Get radius using getDimension("radius")
+        // - Get height using getDimension("height")  
+        // - Create a volume method (arrow function) that calculates cylinder volume
+        // - Volume formula: π × radius² × height (use Math.PI)
+        function Cylinder() {
+            // Get radius dimension using getDimension function
+            this.radius = getDimension("radius");
+
+            // Get height dimension using getDimension function
+            this.height = getDimension("height");
+
+            // Create volume calculation method (arrow function)
+            this.volume = () => {
+                return Math.PI * Math.pow(this.radius, 2) * this.height;
+            };
+        }
+
+
+        // TODO 4: Implement displayResult function
+        // This function expression should display the calculation result
+        // Parameters: cylinder - a Cylinder object
+        // Requirements:
+        // - Calculate volume by calling cylinder.volume()
+        // - Validate that the volume is a valid number
+        // - Use document.write() to display result in the specified format
+        // - Format volume to 4 decimal places using toFixed(4)
+        // - Use the provided HTML structure with highlight class
+        const displayResult = function (cylinder) {
+            // Calculate volume by calling cylinder.volume()
+            let volume = cylinder.volume();
+
+            // Validate that the volume is a valid number
+            if (!isNaN(volume) && isFinite(volume)) {
+                // Format volume to 4 decimal places
+                let formattedVolume = volume.toFixed(4);
+
+                // Create a div to display the result with the highlight class
+                let resultDiv = document.createElement('div');
+                resultDiv.className = 'highlight'; // Apply the highlight class
+                resultDiv.textContent = `Cylinder Volume for radius ${cylinder.radius} and height ${cylinder.height} is: ${formattedVolume}`;
+                document.body.appendChild(resultDiv); // Append the result to the body
+            } else {
+                // If the volume is invalid, display an error message
+                let errorDiv = document.createElement('div');
+                errorDiv.className = 'highlight';
+                errorDiv.textContent = 'Invalid height or radius: Please enter valid positive numbers.';
+                document.body.appendChild(errorDiv);
+            }
+        };
+
+        const cylinder = new Cylinder();
+        displayResult(cylinder);
+    </script>
+</body>
+
+</html>
