@@ -1,0 +1,117 @@
+/* style.css - Responsive Styling for Problem 1 */
+
+/* Base styles for better cross-browser compatibility */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+/* Container for better responsive layout */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Image styling for better responsiveness */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Link styling to remove default underlines */
+a {
+    text-decoration: none;
+    display: inline-block;
+}
+
+/* Mobile-first responsive design */
+@media screen and (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+    
+    img {
+        max-width: 90%;
+        margin: 10px auto;
+    }
+    
+    /* Ensure text doesn't get too small on mobile */
+    p {
+        font-size: 16px !important;
+        padding: 10px !important;
+        margin: 15px auto !important;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    /* iPhone SE and smaller devices */
+    body {
+        padding: 5px;
+    }
+    
+    img {
+        max-width: 95%;
+        margin: 5px auto;
+    }
+    
+    p {
+        font-size: 14px !important;
+        padding: 8px !important;
+        margin: 10px auto !important;
+        max-width: 95% !important;
+    }
+}
+
+/* Large screen optimizations */
+@media screen and (min-width: 1024px) {
+    .container {
+        padding: 0 30px;
+    }
+    
+    img {
+        max-width: 600px;
+    }
+}
+
+/* Print styles */
+@media print {
+    body {
+        background: white;
+        color: black;
+    }
+    
+    a {
+        text-decoration: underline;
+    }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    img {
+        border: 2px solid #000;
+    }
+    
+    p {
+        border: 2px solid #fff !important;
+    }
+}

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Original Title</title>
+    <style>
+        /* style.css - Responsive Styling for Problem 1 */
+
+        /* Base styles for better cross-browser compatibility */
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f5f5f5;
+        }
+
+        /* Container for better responsive layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 30px;
+        }
+
+        /* Image styling for better responsiveness */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        /* Link styling to remove default underlines */
+        a {
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        /* Mobile-first responsive design */
+        @media screen and (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .container {
+                padding: 20px;
+            }
+            
+            img {
+                max-width: 90%;
+                margin: 10px auto;
+            }
+            
+            /* Ensure text doesn't get too small on mobile */
+            p {
+                font-size: 16px !important;
+                padding: 10px !important;
+                margin: 15px auto !important;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            /* iPhone SE and smaller devices */
+            body {
+                padding: 5px;
+            }
+            
+            .container {
+                padding: 15px;
+            }
+            
+            img {
+                max-width: 95%;
+                margin: 5px auto;
+            }
+            
+            p {
+                font-size: 14px !important;
+                padding: 8px !important;
+                margin: 10px auto !important;
+                max-width: 95% !important;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+        }
+
+        /* Large screen optimizations */
+        @media screen and (min-width: 1024px) {
+            .container {
+                padding: 40px;
+            }
+            
+            img {
+                max-width: 600px;
+            }
+        }
+
+        /* Accessibility improvements */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to KKU</h1>
+        
+        <div class="image-container">
+            <!-- This is the original KKU logo that will be replaced -->
+            <img src="https://upload.wikimedia.org/wikipedia/th/thumb/1/1c/Khon_Kaen_University_Logo.svg/200px-Khon_Kaen_University_Logo.svg.png" alt="KKU Logo" id="main-logo">
+        </div>
+        
+        <p>This is the original content that will be enhanced with JavaScript.</p>
+    </div>
+
+    <script>
+        // problem1.js - Interactive DOM Manipulation
+        // Modern JavaScript using const/let and querySelector()
+
+        // Wait for DOM to be fully loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // 1. Image Replacement and Styling
+            // Find the existing KKU logo image
+            const logoImage = document.querySelector('img');
+            
+            if (logoImage) {
+                // Replace with Faculty of Engineering image
+                logoImage.src = 'https://www.en.kku.ac.th/wp-content/uploads/2019/07/eng-logo.png';
+                logoImage.alt = 'Faculty of Engineering KKU';
+                
+                // Create a clickable link wrapper
+                const linkWrapper = document.createElement('a');
+                linkWrapper.href = 'https://www.en.kku.ac.th';
+                linkWrapper.target = '_blank'; // Open in new tab for better UX
+                
+                // Get the parent element of the image
+                const imageParent = logoImage.parentNode;
+                
+                // Insert the link before the image
+                imageParent.insertBefore(linkWrapper, logoImage);
+                
+                // Move the image inside the link
+                linkWrapper.appendChild(logoImage);
+                
+                // Add hover effect for better user experience
+                logoImage.style.cursor = 'pointer';
+                logoImage.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+                
+                // Add hover effects
+                linkWrapper.addEventListener('mouseenter', function() {
+                    logoImage.style.opacity = '0.8';
+                    logoImage.style.transform = 'scale(1.05)';
+                });
+                
+                linkWrapper.addEventListener('mouseleave', function() {
+                    logoImage.style.opacity = '1';
+                    logoImage.style.transform = 'scale(1)';
+                });
+            }
+            
+            // 2. Dynamic Content Creation
+            // Create a new paragraph element
+            const newParagraph = document.createElement('p');
+            
+            // Set the text content
+            newParagraph.innerHTML = 'We hope you enjoy learning';
+            
+            // Apply styling using JavaScript
+            newParagraph.style.color = 'white';
+            newParagraph.style.backgroundColor = 'black';
+            newParagraph.style.fontSize = '24px';
+            newParagraph.style.padding = '15px';
+            newParagraph.style.textAlign = 'center';
+            newParagraph.style.margin = '20px auto';
+            newParagraph.style.borderRadius = '8px';
+            newParagraph.style.fontWeight = 'bold';
+            newParagraph.style.boxShadow = '0 2px 4px rgba(0,0,0,0.3)';
+            newParagraph.style.maxWidth = '90%';
+            newParagraph.style.wordWrap = 'break-word';
+            
+            // Find where to insert the paragraph (after the image container)
+            const imageContainer = document.querySelector('.image-container');
+            
+            // Insert the paragraph after the image container
+            if (imageContainer && imageContainer.nextSibling) {
+                imageContainer.parentNode.insertBefore(newParagraph, imageContainer.nextSibling);
+            } else if (imageContainer) {
+                imageContainer.parentNode.insertBefore(newParagraph, imageContainer.nextSibling);
+            } else {
+                // Fallback: append to body
+                document.querySelector('.container').appendChild(newParagraph);
+            }
+            
+            // 3. Document Metadata Modification
+            // Change the HTML document title
+            document.title = 'KKU Engineering';
+            
+            // 4. Additional Responsive Design Enhancements
+            // Make the paragraph responsive
+            function applyMobileStyles() {
+                if (window.innerWidth <= 480) {
+                    newParagraph.style.fontSize = '18px';
+                    newParagraph.style.padding = '12px';
+                } else if (window.innerWidth <= 768) {
+                    newParagraph.style.fontSize = '20px';
+                    newParagraph.style.padding = '14px';
+                } else {
+                    newParagraph.style.fontSize = '24px';
+                    newParagraph.style.padding = '15px';
+                }
+            }
+            
+            // Apply mobile styles on load and resize
+            applyMobileStyles();
+            window.addEventListener('resize', applyMobileStyles);
+            
+            // Add a subtle animation to the new paragraph
+            newParagraph.style.opacity = '0';
+            newParagraph.style.transform = 'translateY(20px)';
+            newParagraph.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            
+            // Animate in after a short delay
+            setTimeout(() => {
+                newParagraph.style.opacity = '1';
+                newParagraph.style.transform = 'translateY(0)';
+            }, 500);
+            
+        
+        });
+    </script>
+</body>
+</html>
