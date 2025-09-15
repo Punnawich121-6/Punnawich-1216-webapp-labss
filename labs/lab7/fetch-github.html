@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Fetch GitHub</title>
+  <style>
+    body {
+      text-align: center;
+    }
+    
+  </style>
+</head>
+<body>
+  <div id="profile"></div>
+
+  <script>
+    const username = "Punnawich121-6";  
+    const url = `https://api.github.com/users/${username}`;
+
+    fetch(url)
+      .then(response => response.json())
+      .then(data => {
+        const container = document.getElementById("profile");
+
+        const nameLink = document.createElement("a");
+        nameLink.href = data.html_url;
+        nameLink.target = "_blank";
+        nameLink.innerHTML = `<h1>${data.name}</h1>`;
+
+        const avatar = document.createElement("img");
+        avatar.src = data.avatar_url;
+
+        container.appendChild(nameLink);
+        container.appendChild(avatar);
+      })
+      .catch(error => console.error("Error:", error));
+  </script>
+</body>
+</html>
