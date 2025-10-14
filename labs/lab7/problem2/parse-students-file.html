@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reading Students Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 24px;
+        }
+        
+        .student-info {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .student-info p {
+            margin: 8px 0;
+        }
+        
+        .student-name {
+            font-weight: bold;
+        }
+        
+        .skills {
+            font-style: italic;
+        }
+        
+        .error {
+            color: red;
+            font-weight: bold;
+        }
+        
+        .loading {
+            color: #666;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Reading Students Information</h1>
+        <div id="output" class="student-info">
+            <div class="loading">Loading students data...</div>
+        </div>
+    </div>
+
+    <script>
+        function parseAndDisplayStudents(data) {
+            try {
+                const outputDiv = document.getElementById('output');
+                let htmlContent = '';
+                
+                data.wclass.forEach((studentWrapper, index) => {
+                    const student = studentWrapper.student;
+                    const id = student["@attributes"].id;
+                    const name = student.name;
+                    const skills = student.skill;
+                    
+                    htmlContent += `<p>${index + 1}. ${id} <span class="student-name">${name}</span> has skills <span class="skills">${skills}</span></p>`;
+                });
+                
+                outputDiv.innerHTML = htmlContent;
+                
+            } catch (error) {
+                document.getElementById('output').innerHTML = '<div class="error">Error parsing students data: ' + error.message + '</div>';
+            }
+        }
+
+        async function loadStudentsFile() {
+            try {
+                const fileContent = await window.fs.readFile('students.json', { encoding: 'utf8' });
+                const data = JSON.parse(fileContent);
+                parseAndDisplayStudents(data);
+                
+            } catch (error) {
+                try {
+                    const response = await fetch('students.json');
+                    if (!response.ok) {
+                        throw new Error('Failed to load students.json file');
+                    }
+                    const data = await response.json();
+                    parseAndDisplayStudents(data);
+                    
+                } catch (fetchError) {
+                    document.getElementById('output').innerHTML = 
+                        '<div class="error">Error loading students.json file. Please ensure the file is uploaded or available in the same directory.</div>';
+                }
+            }
+        }
+
+        window.addEventListener('load', () => {
+            loadStudentsFile();
+        });
+    </script>
+</body>
+</html>
